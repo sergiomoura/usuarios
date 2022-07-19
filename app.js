@@ -4,6 +4,7 @@ const functions = require('./functions');
 
 // 2 - Criar uma aplicação/servidor
 const app = express();
+app.use(express.json());
 
 // 3 - Dizer para o servidor o endereço e a função a ser executada
 // quando esse endereço receber uma requisição
@@ -32,11 +33,10 @@ app.get(
 app.post(
     '/usuarios',
     (req, res)=>{
-        functions.criarUsuario("Fulano");
+        functions.criarUsuario(req.body.nome);
         res.send("Usuário criado com sucesso");
     }
 )
-
 
 // 4 - Fazer o servidor ficar de prontidão aguardando uma requisição
 app.listen(3000,()=>{console.log('Servidor rodando na porta 3000')});
