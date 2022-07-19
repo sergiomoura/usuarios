@@ -38,5 +38,17 @@ app.post(
     }
 )
 
+// Rota para buscaar usuário pelo nome
+// GET '/busca
+app.get(
+    '/busca',
+    (req, res) => {
+        let trecho = req.query.trecho;
+        let usuariosEncontrados = functions.buscarUsuario(trecho);
+        res.send(usuariosEncontrados);
+    }
+)
+
+
 // 4 - Fazer o servidor ficar de prontidão aguardando uma requisição
 app.listen(3000,()=>{console.log('Servidor rodando na porta 3000')});

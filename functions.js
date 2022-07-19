@@ -24,8 +24,16 @@ module.exports = {
 
     },
     removerUsuario: ()=>{},
+
     substituirUsuario: ()=>{},
-    buscarUsuario: ()=> {},
+
+    buscarUsuario: (trecho)=> {
+        let usuariosEncontrados = usuarios.filter(
+            u => u.nome.includes(trecho)
+        );
+        return usuariosEncontrados;
+    },
+
     listarUsuarios: ()=>{
         return usuarios;
     }
